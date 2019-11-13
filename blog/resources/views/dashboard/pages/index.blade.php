@@ -7,7 +7,7 @@
             <tr>
 
               
-                <th>#</th>
+                <th>slug</th>
                 <th>title</th>
                 <th>Edit</th>
                 <th>delete</th>
@@ -53,7 +53,7 @@
                     [
                        
                         {
-                            data: "id",
+                            data: "slug",
                             "class": "data_id"
                        
                         },
