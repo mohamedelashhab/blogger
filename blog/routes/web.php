@@ -47,8 +47,14 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
     // end page
 });
 
+Route::group(['prefix' => '', 'as' => 'posts.'], function () {
+    Route::get('posts/','Frontend\PostController@index')->name('index');
+    Route::get('posts/{post}','Frontend\PostController@show')->name('show');
+
+});
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('posts.index');
 });
 
 Auth::routes();
