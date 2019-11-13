@@ -53,7 +53,9 @@ class UserController extends Controller
             'password' => 'required|min:6|max:200',
         ]);
 
-        User::create($request->all());
+        $data = $request->all();
+        $data['password'] = bcrypt($data['password']);
+        User::create($data);
         return redirect()->route('dashboard.users.index');
     }
 

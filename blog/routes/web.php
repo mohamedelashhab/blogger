@@ -12,7 +12,7 @@
 */
 
 
-Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
+Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'auth'], function () {
     // user
     Route::get('Userslist','Dashboard\UserController@list')->name('users.list');
     Route::get('users','Dashboard\UserController@index')->name('users.index');
@@ -50,3 +50,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

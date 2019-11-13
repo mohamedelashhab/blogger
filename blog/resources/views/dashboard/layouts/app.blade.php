@@ -21,6 +21,12 @@
 
     <link rel="stylesheet" href="{{url('dashboard/css/app.css')}}">
     <script src="{{url('dashboard/js/app.js')}}"></script>
+
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <!------ Include the above in your HEAD tag ---------->
