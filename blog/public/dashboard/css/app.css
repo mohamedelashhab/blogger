@@ -1253,6 +1253,16 @@ body {
   position: absolute;
   margin-left: 0px;
 }
+.mpage-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+.mpage-content-wrapper {
+  position: absolute;
+  margin-left: 0px;
+}
 
 
 /* Sidebar Styles */

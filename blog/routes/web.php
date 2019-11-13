@@ -34,6 +34,17 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
     Route::put('posts/{post}/update','Dashboard\PostController@update')->name('posts.update');
     Route::delete('posts/{post}/delete','Dashboard\PostController@destroy')->name('posts.delete');
     // end post
+
+    // page
+    Route::get('Pageslist','Dashboard\PageController@list')->name('pages.list');
+    Route::get('pages','Dashboard\PageController@index')->name('pages.index');
+    Route::get('pages/{page}/show','Dashboard\PageController@show')->name('pages.show');
+    Route::get('pages/create','Dashboard\PageController@create')->name('pages.create');
+    Route::post('pages/store','Dashboard\PageController@store')->name('pages.store');
+    Route::get('pages/{page}/edit','Dashboard\PageController@edit')->name('pages.edit');
+    Route::put('pages/{page}/update','Dashboard\PageController@update')->name('pages.update');
+    Route::delete('pages/{page}/delete','Dashboard\PageController@destroy')->name('pages.delete');
+    // end page
 });
 
 Route::get('/', function () {

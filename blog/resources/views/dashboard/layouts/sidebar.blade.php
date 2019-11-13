@@ -6,7 +6,7 @@
                     <li> <a href="#">Dashboard</a> </li>
                     <li> <a href="{{route('dashboard.users.index')}}">Users</a> </li>
                     <li> <a href="{{route('dashboard.posts.index')}}">Posts</a> </li>
-                    <li> <a href="#">Pages</a> </li>
+                    <li> <a href="{{route('dashboard.pages.index')}}">Pages</a> </li>
                     <li> <a href="#">Settings</a> </li>
                     
                 </ul>
@@ -15,6 +15,7 @@
             <div id="page-content-wrapper">
                 <div class="container-fluid">
                     @yield('content')
+                    @include('dashboard.layouts.error')
                 </div>
             </div> <!-- /#page-content-wrapper -->
         </div> <!-- /#wrapper -->

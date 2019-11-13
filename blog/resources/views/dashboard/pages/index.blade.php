@@ -1,14 +1,13 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <table id="posts" class="table" >
+    <table id="pages" class="table" >
  
         <thead>
             <tr>
 
               
                 <th>#</th>
-                <th>image</th>
                 <th>title</th>
                 <th>Edit</th>
                 <th>delete</th>
@@ -22,7 +21,7 @@
 
     <div class="row">
             <div style='position: absolute; center: 0;  padding: 0 0 0 0;'
-             class="col-md-6 col-sm-6"><a href="{{route('dashboard.posts.create')}}"><button class="btn btn-primary" ><i class="fa fa-plus" aria-hidden="true"></i> Add New Post</button></a></div>
+             class="col-md-6 col-sm-6"><a href="{{route('dashboard.pages.create')}}"><button class="btn btn-primary" ><i class="fa fa-plus" aria-hidden="true"></i> Add New Page</button></a></div>
 
     </div>
 @endsection
@@ -31,7 +30,7 @@
     <script>
         $(document).ready(function () {
            
-            var table = $("#posts").DataTable({
+            var table = $("#pages").DataTable({
              
                 "sScrollX": "100%",
                 "sScrollXInner": "110%",
@@ -46,7 +45,7 @@
                   
                     ajax:
                     {
-                        url: "{{ route('dashboard.posts.list') }}",
+                        url: "{{ route('dashboard.pages.list') }}",
                         type: 'GET',
                         
                     },
@@ -58,23 +57,14 @@
                             "class": "data_id"
                        
                         },
-
-                        {
-                        data: "image",
-                        "orderable": false,
-                        "searchable":false,
-                        "class" : "data",
-                        render: function(data, type, row){
-                            
-                            return '<img src={!! asset("uploads/images") !!}' +'/'+ data +  ' width=100 height=50>';
-                        }
-                        },
-                        
                         {
                             data: "title",
                             "class": "data"
-                        
+                       
                         },
+
+                      
+                       
                         
                         {
                             data: "id",
@@ -105,18 +95,18 @@
 
 
 
-                $("#posts").on('click', '.js-update', function () {
+                $("#pages").on('click', '.js-update', function () {
                     var button = $(this);
             
-                    window.location = "/dashboard/posts/" + button.attr("data-id") + "/edit";
+                    window.location = "/dashboard/pages/" + button.attr("data-id") + "/edit";
                 });
 
-                $("#posts").on('click', '.js-delete', function () {
+                $("#pages").on('click', '.js-delete', function () {
                     var button = $(this);
             
                     $.ajax(
                         {
-                            url: "/dashboard/posts/" + button.attr("data-id") + "/delete",
+                            url: "/dashboard/pages/" + button.attr("data-id") + "/delete",
                             method: "DELETE",
                             data:{
                             "_token": "{{ csrf_token() }}",
@@ -127,9 +117,9 @@
                         });
                 });
 
-                $("#posts").on('click', 'tr .data', function(){
+                $("#pages").on('click', 'tr .data', function(){
                     let id = $(this).siblings(".data_id").text();
-                    window.location = "/dashboard/posts/" + id + "/show";
+                    window.location = "/dashboard/pages/" + id + "/show";
                 });
 
 
