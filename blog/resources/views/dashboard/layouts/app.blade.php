@@ -10,6 +10,15 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+   
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+    {{-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script> --}}
+
+
     <link rel="stylesheet" href="{{url('dashboard/css/app.css')}}">
     <script src="{{url('dashboard/js/app.js')}}"></script>
 </head>
@@ -27,6 +36,14 @@
 
 
     @yield('script')
+{{-- 
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script> --}}
+
+   @stack('js-script')
 
     @if ($errors->any())
     <div class="alert alert-danger">

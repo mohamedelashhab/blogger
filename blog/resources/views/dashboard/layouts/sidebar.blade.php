@@ -5,7 +5,7 @@
                     <li class="sidebar-brand"> <a href="#"> Blog </a> </li>
                     <li> <a href="#">Dashboard</a> </li>
                     <li> <a href="{{route('dashboard.users.index')}}">Users</a> </li>
-                    <li> <a href="#">Posts</a> </li>
+                    <li> <a href="{{route('dashboard.posts.index')}}">Posts</a> </li>
                     <li> <a href="#">Pages</a> </li>
                     <li> <a href="#">Settings</a> </li>
                     
