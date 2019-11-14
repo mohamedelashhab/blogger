@@ -5,6 +5,13 @@ use App\models\Menu;
 
 
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'auth'], function () {
+
+
+    Route::get('index',function(){
+        return view("dashboard.index");
+    })->name('index');
+
+
     // user
     Route::get('Userslist','Dashboard\UserController@list')->name('users.list');
     Route::get('users','Dashboard\UserController@index')->name('users.index');
@@ -48,6 +55,13 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
     Route::put('menus/{menu}/update','Dashboard\MenuController@update')->name('menus.update');
     Route::delete('menus/{menu}/delete','Dashboard\MenuController@destroy')->name('menus.delete');
     // end menu
+
+
+    // settings
+    Route::get("settings/site", 'Dashboard\SettingController@site')->name("settings.site");
+    Route::post("settings/site/post", 'Dashboard\SettingController@postSetting')->name("settings.post");
+    //end settings
+
     });
 
     Route::group(['prefix' => '', 'as' => 'posts.'], function () {

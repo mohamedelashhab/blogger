@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {!! html_entity_decode($body)  !!}
+    {!! html_entity_decode($body) !!}
 
 @endsection
 

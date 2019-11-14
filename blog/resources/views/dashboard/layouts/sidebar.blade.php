@@ -7,7 +7,9 @@
                     <li> <a href="{{route('dashboard.users.index')}}">Users</a> </li>
                     <li> <a href="{{route('dashboard.posts.index')}}">Posts</a> </li>
                     <li> <a href="{{route('dashboard.pages.index')}}">Pages</a> </li>
-                    <li> <a href="#">Settings</a> </li>
+                    <li style="color:white">Settings</li>
+                    <li> <a href="{{route('dashboard.menus.index')}}">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Menus</a> </li>
+                    <li> <a href="{{route('dashboard.settings.site')}}"> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Edit Site Name</a> </li>
                     
                 </ul>
             </div> <!-- /#sidebar-wrapper -->
