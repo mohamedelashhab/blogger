@@ -24,6 +24,7 @@
              class="col-md-6 col-sm-6"><a href="{{route('dashboard.menus.create')}}"><button class="btn btn-primary" ><i class="fa fa-plus" aria-hidden="true"></i> Add Menu Page</button></a></div>
 
     </div>
+    <hr>
 @endsection
 
 @section('script')

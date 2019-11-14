@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(5);
+        $posts = Post::latest()->paginate(5);
         return view("frontend.posts.index", ["posts"=>$posts]);
     }
     public function show(Post $post)

@@ -49,6 +49,9 @@ $option = Setting::where('option_name', '=', 'site_name')->first();
                                             </a>
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                               <a class="dropdown-item"
+                                                    href="{{route('dashboard.index')}}">Dashboard
+                                               </a>
                                                 @foreach ($menus as $menu)
                                                     <a class="dropdown-item"
                                                          href="{{route('custome', $menu->page->slug)}}">{{$menu->title}}

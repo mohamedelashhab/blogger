@@ -101,8 +101,12 @@ class PostController extends Controller
             'description' => 'required|min:1',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        if($request->has('image')){
+            $image_name = $this->saveFiles(request()->file('image'), 'images');
+        }else{
+            $image_name = $post->image;
+        }
 
-        $image_name = $this->saveFiles(request()->file('image'), 'images');
         $data = $request->all();
         $data['image'] = $image_name;
         $post->update($data);

@@ -71,7 +71,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
 
     Route::get('/', function () {
         return redirect()->route('posts.index');
-    });
+    })->name('home');
 
     Route::get('frontend/{custome}', function ($custome) {
         $page = Page::where('slug', '=',$custome)->firstOrFail();  

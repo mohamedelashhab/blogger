@@ -25,6 +25,7 @@
              class="col-md-6 col-sm-6"><a href="{{route('dashboard.users.create')}}"><button class="btn btn-primary" ><i class="fa fa-plus" aria-hidden="true"></i> Add New User</button></a></div>
 
     </div>
+    <hr>
 @endsection
 
 @section('script')
