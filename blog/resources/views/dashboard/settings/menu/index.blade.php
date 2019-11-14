@@ -9,7 +9,6 @@
               
                 <th>#</th>
                 <th>title</th>
-                <th>url</th>
                 <th>Edit</th>
                 <th>delete</th>
                 
@@ -63,11 +62,7 @@
                             "class": "data"
                        
                         },
-                        {
-                            data: "url",
-                            "class": "data"
-                       
-                        },
+                   
 
                       
                        

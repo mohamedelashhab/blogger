@@ -42,7 +42,7 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'url' => 'required|min:1', 
+            'page_id' => 'required|min:1', 
             'title' => 'required|min:1'
         ]);
         Menu::create($request->all());
@@ -82,7 +82,7 @@ class MenuController extends Controller
     public function update(Request $request,menu $menu)
     {
         request()->validate([
-            'url' => 'required|min:1',  
+            'page_id' => 'required|min:1',  
             'title' => 'required|min:1'
         ]);
 

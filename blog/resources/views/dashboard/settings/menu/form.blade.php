@@ -18,9 +18,9 @@
     
         <label for="url">Page:</label>
         <div class="form-group">
-            <select name="url" class="form-control form-control-lg">
+            <select name="page_id" class="form-control form-control-lg">
                     @foreach ($pages as $page)
-                        <option value="{{$page->slug}}" {{!empty($menu) && ($menu->url==$page->slug)?"selected":""}}>{{$page->title}}</option>
+                        <option value="{{$page->id}}" {{!empty($menu) && ($menu->page_id==$page->id)?"selected":""}}>{{$page->title}}</option>
                     @endforeach
             </select>
         </div>

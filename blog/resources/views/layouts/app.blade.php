@@ -41,7 +41,7 @@ $option = Setting::where('option_name', '=', 'site_name')->first();
                                     
                                     <?php 
                                         use App\models\Menu;
-                                        $menus = Menu::all();    
+                                        $menus = Menu::with('page')->get();    
                                     ?>
                                     <div class="dropdown">
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -51,7 +51,7 @@ $option = Setting::where('option_name', '=', 'site_name')->first();
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 @foreach ($menus as $menu)
                                                     <a class="dropdown-item"
-                                                         href="{{route('custome', $menu->url)}}">{{$menu->title}}
+                                                         href="{{route('custome', $menu->page->slug)}}">{{$menu->title}}
                                                     </a>
                                                 @endforeach
                                             
