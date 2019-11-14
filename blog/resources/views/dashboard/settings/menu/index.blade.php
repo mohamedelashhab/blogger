@@ -1,14 +1,15 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <table id="pages" class="table" >
+    <table id="menus" class="table" >
  
         <thead>
             <tr>
 
               
-                <th>slug</th>
+                <th>#</th>
                 <th>title</th>
+                <th>url</th>
                 <th>Edit</th>
                 <th>delete</th>
                 
@@ -21,7 +22,7 @@
 
     <div class="row">
             <div style='position: absolute; center: 0;  padding: 0 0 0 0;'
-             class="col-md-6 col-sm-6"><a href="{{route('dashboard.pages.create')}}"><button class="btn btn-primary" ><i class="fa fa-plus" aria-hidden="true"></i> Add New Page</button></a></div>
+             class="col-md-6 col-sm-6"><a href="{{route('dashboard.menus.create')}}"><button class="btn btn-primary" ><i class="fa fa-plus" aria-hidden="true"></i> Add Menu Page</button></a></div>
 
     </div>
 @endsection
@@ -30,7 +31,7 @@
     <script>
         $(document).ready(function () {
            
-            var table = $("#pages").DataTable({
+            var table = $("#menus").DataTable({
              
                 "sScrollX": "100%",
                 "sScrollXInner": "110%",
@@ -45,7 +46,7 @@
                   
                     ajax:
                     {
-                        url: "{{ route('dashboard.pages.list') }}",
+                        url: "{{ route('dashboard.menus.list') }}",
                         type: 'GET',
                         
                     },
@@ -53,12 +54,17 @@
                     [
                        
                         {
-                            data: "slug",
+                            data: "id",
                             "class": "data_id"
                        
                         },
                         {
                             data: "title",
+                            "class": "data"
+                       
+                        },
+                        {
+                            data: "url",
                             "class": "data"
                        
                         },
@@ -72,7 +78,7 @@
                             "searchable":false,
                             
                             render: function (data, type, row) {
-                                 return "<button class='btn-link js-update' data-id=" + row.slug + ">Edit</button>";
+                                 return "<button class='btn-link js-update' data-id=" + data + ">Edit</button>";
                                
                             }
                         },
@@ -82,7 +88,7 @@
                             "searchable":false,
                             
                             render: function (data, type, row) {
-                                 return "<button class='btn-danger js-delete' data-id=" + row.slug + ">delete</button>";
+                                 return "<button class='btn-danger js-delete' data-id=" + data + ">delete</button>";
                                
                             }
                         },
@@ -95,18 +101,18 @@
 
 
 
-                $("#pages").on('click', '.js-update', function () {
+                $("#menus").on('click', '.js-update', function () {
                     var button = $(this);
             
-                    window.location = "/dashboard/pages/" + button.attr("data-id") + "/edit";
+                    window.location = "/dashboard/menus/" + button.attr("data-id") + "/edit";
                 });
 
-                $("#pages").on('click', '.js-delete', function () {
+                $("#menus").on('click', '.js-delete', function () {
                     var button = $(this);
             
                     $.ajax(
                         {
-                            url: "/dashboard/pages/" + button.attr("data-id") + "/delete",
+                            url: "/dashboard/menus/" + button.attr("data-id") + "/delete",
                             method: "DELETE",
                             data:{
                             "_token": "{{ csrf_token() }}",
@@ -117,9 +123,9 @@
                         });
                 });
 
-                $("#pages").on('click', 'tr .data', function(){
+                $("#menus").on('click', 'tr .data', function(){
                     let id = $(this).siblings(".data_id").text();
-                    window.location = "/dashboard/pages/" + id + "/show";
+                    window.location = "/dashboard/menus/" + id + "/show";
                 });
 
 

@@ -1,15 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\models\Page;
+use App\models\Menu;
 
 
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'auth'], function () {
@@ -45,17 +37,38 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
     Route::put('pages/{page}/update','Dashboard\PageController@update')->name('pages.update');
     Route::delete('pages/{page}/delete','Dashboard\PageController@destroy')->name('pages.delete');
     // end page
-});
 
-Route::group(['prefix' => '', 'as' => 'posts.'], function () {
-    Route::get('posts/','Frontend\PostController@index')->name('index');
-    Route::get('posts/{post}','Frontend\PostController@show')->name('show');
+    // menu
+    Route::get('Menuslist','Dashboard\MenuController@list')->name('menus.list');
+    Route::get('menus','Dashboard\MenuController@index')->name('menus.index');
+    Route::get('menus/{menu}/show','Dashboard\MenuController@show')->name('menus.show');
+    Route::get('menus/create','Dashboard\MenuController@create')->name('menus.create');
+    Route::post('menus/store','Dashboard\MenuController@store')->name('menus.store');
+    Route::get('menus/{menu}/edit','Dashboard\MenuController@edit')->name('menus.edit');
+    Route::put('menus/{menu}/update','Dashboard\MenuController@update')->name('menus.update');
+    Route::delete('menus/{menu}/delete','Dashboard\MenuController@destroy')->name('menus.delete');
+    // end menu
+    });
 
-});
+    Route::group(['prefix' => '', 'as' => 'posts.'], function () {
+        Route::get('posts/','Frontend\PostController@index')->name('index');
+        Route::get('posts/{post}','Frontend\PostController@show')->name('show');
+    });
 
-Route::get('/', function () {
-    return redirect()->route('posts.index');
-});
+    Route::get('/', function () {
+        return redirect()->route('posts.index');
+    });
+
+    Route::get('/{custome}', function ($custome) {
+        $page = Page::where('slug', '=',$custome)->firstOrFail();  
+        $body = $page->description;
+        return view("frontend.custome", ["body"=>$body]);
+    })->name('custome');
+
+    // Route::get('/welcome/menus', function () {
+    //     $menus = Menu::all();
+    //     return view("welcome", ["menus" => $menus]);
+    // });
 
 Auth::routes();
 

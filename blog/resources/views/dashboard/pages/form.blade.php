@@ -3,7 +3,7 @@
 
 @section('content')
 @if (!empty($page))
-    <form action="{{route('dashboard.pages.update', $page->id)}}" method="POST" role="form" enctype="multipart/form-data">
+    <form action="{{route('dashboard.pages.update', $page->slug)}}" method="POST" role="form" enctype="multipart/form-data">
     @method('put')
 @else
     <form action="{{route('dashboard.pages.store')}}" method="POST" role="form" enctype="multipart/form-data">
@@ -23,6 +23,8 @@
 
 
         <button type="submit" class="btn btn-primary">Submit</button>
+        <hr>
+
     </form>
 
 @endsection

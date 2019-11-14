@@ -33,7 +33,34 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                    
+                                    <?php 
+                                        use App\models\Menu;
+                                        $menus = Menu::all();    
+                                    ?>
+                                    <div class="dropdown">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                    Menu <span class="caret"></span>
+                                            </a>
 
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                @foreach ($menus as $menu)
+                                                    <a class="dropdown-item"
+                                                         href="{{route('custome', $menu->url)}}">{{$menu->title}}
+                                                    </a>
+                                                @endforeach
+                                            
+                                            </div>
+                                    </div>
+    
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                           
+
+                                            
+                                            
+                                    </div>
+                                </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -74,7 +101,7 @@
 
         <main class="py-4">
                 <div class="container">
-                        @yield('content')
+                    @yield('content')
                 </div>
         </main>
     </div>
